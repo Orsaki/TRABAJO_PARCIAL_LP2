@@ -2,10 +2,33 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 class Variable:
-    def __init__(self, nombre, datos):
-        self.nombre = nombre
-        self.datos = pd.Series(datos).dropna()  # elimina valores vacíos
-        self.tipo = self.detectar_tipo()
+    def __init__(self, datos, nombre=None):
+        """
+        Constructor flexible que acepta listas, Series de Pandas, etc.
+        Si se pasa una Serie de Pandas, su nombre se usa automáticamente.
+        
+        Args:
+            datos (list, pd.Series): La colección de datos a analizar.
+            nombre (str, optional): Nombre para la variable. Si es None,
+                                    se infiere de la Serie de Pandas.
+        """
+        # 1. Asignar el nombre de forma inteligente
+        if isinstance(datos, pd.Series) and nombre is None:
+            # Si es una Serie y no se dio un nombre, usamos el de la Serie
+            self.nombre = datos.name if datos.name is not None else "Sin Nombre"
+        elif nombre is not None:
+            # Si el usuario da un nombre, ese tiene prioridad
+            self.nombre = nombre
+        else:
+            # Si son datos sin nombre (como una lista), asignamos uno genérico
+            self.nombre = "Sin Nombre"
+
+        # 2. Asegurar que los datos sean una Serie de Pandas para la limpieza
+        if not isinstance(datos, pd.Series):
+            datos = pd.Series(datos)
+            
+        self.datos = datos.dropna() 
+        self.tipo = self._detectar_tipo()
         self.n = len(self.datos)
 
     def detectar_tipo(self):
