@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import math
 import matplotlib.pyplot as plt
 class Variable:
     def __init__(self, datos, nombre=None):
@@ -28,7 +29,7 @@ class Variable:
             datos = pd.Series(datos)
             
         self.datos = datos.dropna() 
-        self.tipo = self._detectar_tipo()
+        self.tipo = self.detectar_tipo()
         self.n = len(self.datos)
 
     def detectar_tipo(self):
@@ -42,11 +43,13 @@ class VariableCuantitativa(Variable):
     """
     Heredamos de la clase Variable toda su información 
     """
-    def __init__(self, nombre, datos):
-        super().__init__(nombre, datos)
+    # CORRECCIÓN: La firma del constructor ahora es idéntica a la de la clase padre
+    def __init__(self, datos, nombre=None):
+        # CORRECCIÓN: Pasamos los argumentos en el orden correcto a super()
+        super().__init__(datos, nombre=nombre)
 
         if self.tipo != "cuantitativa":
-            raise TypeError("Los datos proporcionados no parecen ser cuantitativos.")
+            raise TypeError(f"La variable '{self.nombre}' no parece ser cuantitativa.")
         
         # Convertimos la Serie de Pandas a una lista de Python para los cálculos
         self.datos = self.datos.astype(float).tolist()
