@@ -13,7 +13,6 @@ class Variable:
             nombre (str, optional): Nombre para la variable. Si es None,
                                     se infiere de la Serie de Pandas.
         """
-        # 1. Asignar el nombre de forma inteligente
         if isinstance(datos, pd.Series) and nombre is None:
             # Si es una Serie y no se dio un nombre, usamos el de la Serie
             self.nombre = datos.name if datos.name is not None else "Sin Nombre"
@@ -21,10 +20,9 @@ class Variable:
             # Si el usuario da un nombre, ese tiene prioridad
             self.nombre = nombre
         else:
-            # Si son datos sin nombre (como una lista), asignamos uno genérico
+            # Si son datos sin nombre (como una lista), asignamos uno 
             self.nombre = "Sin Nombre"
-
-        # 2. Asegurar que los datos sean una Serie de Pandas para la limpieza
+            # los datos lo pasamos a pandas con series
         if not isinstance(datos, pd.Series):
             datos = pd.Series(datos)
             
@@ -43,9 +41,7 @@ class VariableCuantitativa(Variable):
     """
     Heredamos de la clase Variable toda su información 
     """
-    # CORRECCIÓN: La firma del constructor ahora es idéntica a la de la clase padre
     def __init__(self, datos, nombre=None):
-        # CORRECCIÓN: Pasamos los argumentos en el orden correcto a super()
         super().__init__(datos, nombre=nombre)
 
         if self.tipo != "cuantitativa":
