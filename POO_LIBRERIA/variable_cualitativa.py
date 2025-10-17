@@ -80,6 +80,18 @@ class VariableCualitativa(Variable):
         plt.ylabel("Frecuencia relativa")
         plt.show()
 
+#### FATI #####
+    def resumen(self):
+                """Muestra un resumen completo de la variable cualitativa"""
+                print(f"\n📊 Resumen de la variable: {self.nombre}")
+                print(f"Cantidad de datos: {self.n}")
+                print(f"Número de categorías: {self.datos.nunique()}")
+                moda, frec_moda = self.calcular_moda()
+                menos, frec_menos = self.calcular_menos_frecuente()
+                print(f"Categoría más frecuente: {moda} ({frec_moda} veces)")
+                print(f"Categoría menos frecuente: {menos} ({frec_menos} veces)")
+                print("\nTabla de frecuencias:")
+                print(self.calcular_frecuencia())
 
 
 colores = ["Rojo", "Azul", "Rojo", "Verde", "Azul", "Rojo", "Azul", "Verde", "Verde", "Rojo"]
@@ -93,3 +105,26 @@ var_color.grafico_pastel()
 var_color.grafico_barras()
 var_color.grafico_frecuencia_absoluta()
 var_color.grafico_frecuencia_relativa()
+###########FATISITA############
+var_color.resumen()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
