@@ -50,15 +50,6 @@ class VariableCualitativa(Variable):
         plt.title(f"Distribución de {self.nombre} (Gráfico de pastel)")
         plt.show()
 
-    #  Gráfico de barras simples
-    def grafico_barras(self):
-        frec_abs = self.datos.value_counts()
-        plt.figure(figsize=(7,5))
-        plt.bar(frec_abs.index, frec_abs.values)
-        plt.title(f"Distribución de {self.nombre} (Gráfico de barras)")
-        plt.xlabel(self.nombre)
-        plt.ylabel("Frecuencia absoluta")
-        plt.show()
 
     #  Gráfico de frecuencias absolutas
     def grafico_frecuencia_absoluta(self):
