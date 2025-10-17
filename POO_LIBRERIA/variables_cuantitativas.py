@@ -14,7 +14,7 @@ class Variable:
                                     se infiere de la Serie de Pandas.
         """
         if isinstance(datos, pd.Series) and nombre is None:
-            # Si es una Serie y no se dio un nombre, usamos el de la Serie
+            # Si es una Serie y no se dio un nombre, usamos el de la 
             self.nombre = datos.name if datos.name is not None else "Sin Nombre"
         elif nombre is not None:
             # Si el usuario da un nombre, ese tiene prioridad
