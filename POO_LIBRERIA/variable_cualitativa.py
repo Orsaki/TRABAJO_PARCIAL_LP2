@@ -94,22 +94,6 @@ class VariableCualitativa(Variable):
                 print(self.calcular_frecuencia())
 
 
-colores = ["Rojo", "Azul", "Rojo", "Verde", "Azul", "Rojo", "Azul", "Verde", "Verde", "Rojo"]
-var_color = VariableCualitativa("Color favorito", colores)
-
-print(var_color.calcular_frecuencia())
-print("Moda:", var_color.calcular_moda())
-print("Menos frecuente:", var_color.calcular_menos_frecuente())
-
-var_color.grafico_pastel()
-var_color.grafico_barras()
-var_color.grafico_frecuencia_absoluta()
-var_color.grafico_frecuencia_relativa()
-###########FATISITA############
-var_color.resumen()
-
-
-
 
 
 
