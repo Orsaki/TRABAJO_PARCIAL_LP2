@@ -14,3 +14,7 @@ class Variable:
             return "cuantitativa"
         except ValueError:
             return "cualitativa"
+
+
+df = pd.read_csv("archivo_prueba.txt")
+print(df.head())
