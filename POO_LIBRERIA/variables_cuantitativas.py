@@ -137,3 +137,17 @@ class VariableCuantitativa(Variable):
         plt.xlabel('Valores')
         plt.grid(True, linestyle='--', alpha=0.6)
         plt.show()
+        
+    def resumen(self):
+    print(f"--- Resumen Estadístico para '{self.nombre}' ---")
+    print(f"Número de datos: {self.n}")
+    print(f"Media: {self.media():.2f}")
+    print(f"Mediana: {self.mediana():.2f}")
+    print(f"Desviación Estándar: {self.desviacion_estandar():.2f}")
+    print(f"Varianza: {self.varianza():.2f}")
+    print(f"Percentil 25 (Q1): {self.percentil(25):.2f}")
+    print(f"Percentil 75 (Q3): {self.percentil(75):.2f}")
+    print(f"Rango: {self.rango():.2f}")
+    print(f"Asimetría: {self.asimetria():.2f}")
+    print(f"Curtosis: {self.curtosis():.2f}")
+    print("-----------------------------------------")
