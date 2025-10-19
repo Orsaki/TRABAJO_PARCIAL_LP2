@@ -85,6 +85,13 @@ class VariableCualitativa(Variable):
                 print(self.calcular_frecuencia())
 
 
+    def exportar_frecuencias(self, nombre_archivo="frecuencias.csv"):
+        """Guarda la tabla de frecuencias en un archivo CSV"""
+        tabla = self.calcular_frecuencia()
+        tabla.to_csv(nombre_archivo)
+        print(f"✅ Tabla de frecuencias guardada en {nombre_archivo}")
+
+
 
 
 
