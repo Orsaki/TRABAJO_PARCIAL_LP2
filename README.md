@@ -1,5 +1,4 @@
-# TRABAJO_PARCIAL_LP2
-# **INTEGRANTES PARA EL TRABAJO PARCIAL DE LENGUAJE DE PROGRAMACIÓN 2**
+# TRABAJO PARCIAL DE LENGUAJE DE PROGRAMACIÓN 2
 
 **Universidad Nacional Agraria La Molina**  
 **Profesora:** Ana Cecilia Vargas Paredes  
