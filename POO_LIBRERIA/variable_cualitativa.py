@@ -103,8 +103,10 @@ class VariableCualitativa(Variable):
         tabla["Frecuencia relativa acumulada"] = tabla["Frecuencia relativa"].cumsum().round(3)
         return tabla
 
-
-
+    def tabla_frecuencia_alfabetica(self): ###### SE TIENE QUE LLAMAR MANUALMENTE, YA QUE ES UN CÓDIGO PERSONALIZADO
+        """Ordena la tabla de frecuencias alfabéticamente por categoría"""
+        tabla = self.calcular_frecuencia()
+        return tabla.sort_index() 
 
 
     def resumen(self):
@@ -124,6 +126,32 @@ class VariableCualitativa(Variable):
                 print("var_color.exportar_frecuencias('mi_tabla.csv')")
                 print("\n📈 Tabla con frecuencias acumuladas:")
                 print(self.tabla_frecuencia_acumulada())
+
+
+    def exportar_resumen(self, nombre_archivo="resumen_variable.txt"):
+        """Guarda el resumen completo de la variable en un archivo .txt"""
+        with open(nombre_archivo, "w", encoding="utf-8") as f:
+            f.write(f"📊 Resumen de la variable: {self.nombre}\n")
+            f.write(f"Cantidad de datos: {self.n}\n")
+            f.write(f"Número de categorías: {self.datos.nunique()}\n")
+    
+            moda, frec_moda = self.calcular_moda()
+            menos, frec_menos = self.calcular_menos_frecuente()
+            f.write(f"Categoría más frecuente: {moda} ({frec_moda} veces)\n")
+            f.write(f"Categoría menos frecuente: {menos} ({frec_menos} veces)\n\n")
+    
+            f.write("📋 Tabla de frecuencias:\n")
+            f.write(str(self.calcular_frecuencia()) + "\n\n")
+    
+            f.write("📊 Tabla ordenada por frecuencia:\n")
+            f.write(str(self.tabla_frecuencia_ordenada()) + "\n\n")
+    
+            f.write("🔠 Tabla de frecuencias ordenada alfabéticamente:\n")
+            f.write(str(self.tabla_frecuencia_alfabetica()) + "\n\n")
+    
+        print(f"✅ Resumen exportado correctamente en '{nombre_archivo}'")
+
+
 
 
 
