@@ -95,7 +95,7 @@ class VariableCualitativa(Variable):
     def tabla_frecuencia_ordenada(self):
         """Devuelve la tabla de frecuencias ordenada de mayor a menor"""
         tabla = self.calcular_frecuencia()
-        return tabla.sort_values(by="Frecuencia absoluta", ascending=False
+        return tabla.sort_values(by="Frecuencia absoluta", ascending=False)
 
 
 
