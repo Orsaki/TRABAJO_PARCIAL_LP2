@@ -83,6 +83,11 @@ class VariableCualitativa(Variable):
                 print(f"Categoría menos frecuente: {menos} ({frec_menos} veces)")
                 print("\nTabla de frecuencias:")
                 print(self.calcular_frecuencia())
+                print("\n📊 Tabla ordenada por frecuencia:")
+                print(self.tabla_frecuencia_ordenada())
+                print("\n💾 Si deseas guardar los datos, usa:")
+                print("var_color.exportar_frecuencias('mi_tabla.csv')")
+
 
 
     def exportar_frecuencias(self, nombre_archivo="frecuencias.csv"):
