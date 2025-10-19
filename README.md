@@ -1,7 +1,7 @@
 # TRABAJO PARCIAL DE LENGUAJE DE PROGRAMACIÓN 2
 
 **Universidad Nacional Agraria La Molina**  
-![UNALM]([URL_de_la_imagen](https://www.lamolina.edu.pe/portada/html/acerca/escudos/download/color/1193x1355_ESCUDOCOLOR.png))
+![UNALM](https://www.lamolina.edu.pe/portada/html/acerca/escudos/download/color/1193x1355_ESCUDOCOLOR.png)
 
 
 **Profesora:** Ana Cecilia Vargas Paredes  
