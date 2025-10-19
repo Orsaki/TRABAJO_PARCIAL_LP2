@@ -72,6 +72,41 @@ class VariableCualitativa(Variable):
         plt.show()
 
 #### FATI #####
+    
+    def exportar_frecuencias(self, nombre_archivo="frecuencias.csv"):
+        """Guarda la tabla de frecuencias en un archivo CSV"""
+        tabla = self.calcular_frecuencia()
+        tabla.to_csv(nombre_archivo)
+        print(f"✅ Tabla de frecuencias guardada en {nombre_archivo}")
+
+
+    def tabla_frecuencia_ordenada(self):
+        """Devuelve la tabla de frecuencias ordenada de mayor a menor"""
+        tabla = self.calcular_frecuencia()
+        return tabla.sort_values(by="Frecuencia absoluta", ascending=False)
+
+
+    def porcentaje_categoria(self, categoria):
+        """Devuelve el porcentaje de una categoría específica"""
+        if categoria in self.datos.values:
+            conteo = self.datos.value_counts(normalize=True) * 100
+            print(f"La categoría '{categoria}' representa el {round(conteo[categoria], 2)}% del total.")
+            return round(conteo[categoria], 2)
+        else:
+            print(f"⚠️ La categoría '{categoria}' no existe en los datos.")
+            return None
+
+    def tabla_frecuencia_acumulada(self):
+        """Devuelve una tabla con frecuencias acumuladas"""
+        tabla = self.calcular_frecuencia()
+        tabla["Frecuencia absoluta acumulada"] = tabla["Frecuencia absoluta"].cumsum()
+        tabla["Frecuencia relativa acumulada"] = tabla["Frecuencia relativa"].cumsum().round(3)
+        return tabla
+
+
+
+
+
     def resumen(self):
                 """Muestra un resumen completo de la variable cualitativa"""
                 print(f"\n📊 Resumen de la variable: {self.nombre}")
@@ -87,22 +122,8 @@ class VariableCualitativa(Variable):
                 print(self.tabla_frecuencia_ordenada())
                 print("\n💾 Si deseas guardar los datos, usa:")
                 print("var_color.exportar_frecuencias('mi_tabla.csv')")
-
-
-
-    def exportar_frecuencias(self, nombre_archivo="frecuencias.csv"):
-        """Guarda la tabla de frecuencias en un archivo CSV"""
-        tabla = self.calcular_frecuencia()
-        tabla.to_csv(nombre_archivo)
-        print(f"✅ Tabla de frecuencias guardada en {nombre_archivo}")
-
-
-    def tabla_frecuencia_ordenada(self):
-        """Devuelve la tabla de frecuencias ordenada de mayor a menor"""
-        tabla = self.calcular_frecuencia()
-        return tabla.sort_values(by="Frecuencia absoluta", ascending=False)
-
-
+                print("\n📈 Tabla con frecuencias acumuladas:")
+                print(self.tabla_frecuencia_acumulada())
 
 
 
