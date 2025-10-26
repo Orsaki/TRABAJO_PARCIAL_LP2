@@ -156,6 +156,44 @@ class VariableCuantitativa(Variable):
         atipicos_sup = [x for x in self.datos if x > limite_superior]
         
         return {'inferiores': atipicos_inf, 'superiores': atipicos_sup}
+    
+    def resumen(self):
+        """
+        Imprime un resumen estadístico completo y formateado de la variable.
+        """
+        print(f"========== Resumen Estadístico: {self.nombre} ==========")
+        print(f"Registros Válidos:      {self.n}")
+        print("---------------------------------------------")
+        print(f"Media:                    {self.media():.4f}")
+        print(f"Mediana (Q2):             {self.mediana():.4f}")
+        print("---------------------------------------------")
+        print(f"Desviación Estándar:      {self.desviacion_estandar():.4f}")
+        print(f"Varianza:                 {self.varianza():.4f}")
+        print(f"Rango:                    {self.rango():.4f}")
+        print(f"Rango Intercuartílico:    {self.rango_intercuartilico():.4f}")
+        print("---------------------------------------------")
+        print(f"Asimetría:                {self.asimetria():.4f}")
+        print(f"Curtosis:                 {self.curtosis():.4f}")
+        print("---------------------------------------------")
+        
+        cuartiles = self.cuartiles()
+        print(f"Mínimo:                   {min(self.datos) if self.n > 0 else 0:.4f}")
+        print(f"Cuartil 1 (Q1 - 25%):     {cuartiles.get('Q1', 0):.4f}")
+        print(f"Cuartil 3 (Q3 - 75%):     {cuartiles.get('Q3', 0):.4f}")
+        print(f"Máximo:                   {max(self.datos) if self.n > 0 else 0:.4f}")
+        print("---------------------------------------------")
+
+        atipicos = self.detectar_atipicos()
+        if atipicos['inferiores'] or atipicos['superiores']:
+            print("Valores Atípicos:         Detectados")
+            if atipicos['inferiores']:
+                print(f"  - Inferiores: {atipicos['inferiores']}")
+            if atipicos['superiores']:
+                print(f"  - Superiores: {atipicos['superiores']}")
+        else:
+            print("Valores Atípicos:         No detectados")
+
+        print("======================================================")
 
     def graficar_histograma(self, bins='auto'):
         plt.hist(self.datos, bins=bins, edgecolor='black', alpha=0.7)
