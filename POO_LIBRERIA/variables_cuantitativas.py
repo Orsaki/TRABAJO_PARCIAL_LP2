@@ -123,6 +123,22 @@ class VariableCuantitativa(Variable):
         # Se resta 3 para que una distribución normal tenga curtosis de 0 (exceso de curtosis)
         return (cuarto_momento / self.n) - 3
     
+    def cuartiles(self):
+        """
+        Calcula el primer cuartil (Q1), el segundo (Q2, la mediana) y el tercer cuartil (Q3).
+        """
+        q1 = self.percentil(25)
+        q2 = self.mediana()
+        q3 = self.percentil(75)
+        return {'Q1': q1, 'Q2': q2, 'Q3': q3}
+    
+    def rango_intercuartil(self):
+        """
+        Calcula el Rango Intercuartílico (IQR = Q3 - Q1).
+        """
+        cuartiles = self.cuartiles()
+        return cuartiles['Q3'] - cuartiles['Q1']
+
     def graficar_histograma(self, bins='auto'):
         plt.hist(self.datos, bins=bins, edgecolor='black', alpha=0.7)
         plt.title(f'Histograma de {self.nombre}')
