@@ -138,6 +138,24 @@ class VariableCuantitativa(Variable):
         """
         cuartiles = self.cuartiles()
         return cuartiles['Q3'] - cuartiles['Q1']
+    
+    def detectar_atipicos(self):
+        """
+        Identifica valores atípicos leves usando el método del IQR.
+
+        Returns:
+            dict: Un diccionario con listas de valores atípicos inferiores y superiores.
+        """
+        cuartiles = self.cuartiles()
+        iqr = self.rango_intercuartilico()
+        
+        limite_inferior = cuartiles['Q1'] - 1.5 * iqr
+        limite_superior = cuartiles['Q3'] + 1.5 * iqr
+        
+        atipicos_inf = [x for x in self.datos if x < limite_inferior]
+        atipicos_sup = [x for x in self.datos if x > limite_superior]
+        
+        return {'inferiores': atipicos_inf, 'superiores': atipicos_sup}
 
     def graficar_histograma(self, bins='auto'):
         plt.hist(self.datos, bins=bins, edgecolor='black', alpha=0.7)
