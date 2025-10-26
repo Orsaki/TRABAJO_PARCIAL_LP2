@@ -167,3 +167,5 @@ class VariableCuantitativa(Variable):
     print(f"Asimetría: {self.asimetria():.2f}")
     print(f"Curtosis: {self.curtosis():.2f}")
     print("-----------------------------------------")
+-
+
