@@ -50,7 +50,13 @@ class VariableCuantitativa(Variable):
         # Convertimos la Serie de Pandas a una lista de Python para los cálculos
         self.datos = self.datos.astype(float).tolist()
 
-    
+    def __str__(self):
+        """
+        Representación en string del objeto, mostrando un resumen conciso.
+        """
+        return (f"VariableCuantitativa(nombre='{self.nombre}', n={self.n}, "
+                f"media={self.media():.2f}, std={self.desviacion_estandar():.2f})")
+
     def media(self):
         if self.n == 0: return 0
         return sum(self.datos) / self.n
