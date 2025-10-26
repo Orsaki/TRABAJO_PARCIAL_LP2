@@ -138,7 +138,7 @@ class VariableCuantitativa(Variable):
         q3 = self.percentil(75)
         return {'Q1': q1, 'Q2': q2, 'Q3': q3}
     
-    def rango_intercuartil(self):
+    def rango_intercuartilico(self):
         """
         Calcula el Rango Intercuartílico (IQR = Q3 - Q1).
         """
