@@ -200,18 +200,35 @@ class VariableCuantitativa(Variable):
             print("Valores Atípicos:         No detectados")
 
         print("======================================================")
+class VisualizadorEstadistico:
+    """
+    Clase dedicada exclusivamente a crear visualizaciones estadísticas
+    a partir de un objeto de análisis de variables.
+    """
+    def __init__(self, variable: VariableCuantitativa):
+        """
+        El constructor recibe el objeto con los datos y cálculos.
+        
+        Args:
+            variable (VariableCuantitativa): El objeto de análisis que se va a visualizar.
+        """
+        if not isinstance(variable, VariableCuantitativa):
+            raise TypeError("Se requiere un objeto de tipo VariableCuantitativa.")
+        self.variable = variable
 
     def graficar_histograma(self, bins='auto'):
-        plt.hist(self.datos, bins=bins, edgecolor='black', alpha=0.7)
-        plt.title(f'Histograma de {self.nombre}')
+        """Genera un histograma de la variable."""
+        plt.hist(self.variable.datos, bins=bins, edgecolor='black', alpha=0.7)
+        plt.title(f'Histograma de {self.variable.nombre}')
         plt.xlabel('Valores')
         plt.ylabel('Frecuencia')
         plt.grid(axis='y', linestyle='--', alpha=0.7)
         plt.show()
 
     def graficar_boxplot(self):
-        plt.boxplot(self.datos, vert=False, patch_artist=True)
-        plt.title(f'Diagrama de Caja de {self.nombre}')
+        """Genera un diagrama de caja de la variable."""
+        plt.boxplot(self.variable.datos, vert=False, patch_artist=True)
+        plt.title(f'Diagrama de Caja de {self.variable.nombre}')
         plt.xlabel('Valores')
         plt.grid(True, linestyle='--', alpha=0.6)
         plt.show()
