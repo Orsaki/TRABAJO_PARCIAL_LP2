@@ -44,3 +44,5 @@ Este proyecto consiste en el desarrollo de una librería en Python orientada a o
 
 **Variable cuantitativa:**
 - En esta sección explicaremos lo que desarrollamos de forma colaborativa para hacer nuestra presentación del proyecto final. 
+
+- graficar_boxplot() : Genera un diagrama de caja
