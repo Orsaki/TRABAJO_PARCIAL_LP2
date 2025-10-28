@@ -41,3 +41,5 @@ Este proyecto consiste en el desarrollo de una librería en Python orientada a o
 - exportar_frecuencias(nombre_archivo="frecuencias.csv"): Exporta la tabla de frecuencias a un archivo CSV.
 
 - resumen(): Muestra un resumen general con información de categorías, modas y tablas de frecuencias (normal, ordenada y acumulada).
+
+**Variable cuantitativa:**
