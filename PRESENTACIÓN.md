@@ -43,3 +43,4 @@ Este proyecto consiste en el desarrollo de una librería en Python orientada a o
 - resumen(): Muestra un resumen general con información de categorías, modas y tablas de frecuencias (normal, ordenada y acumulada).
 
 **Variable cuantitativa:**
+- En esta sección explicaremos lo que desarrollamos de forma colaborativa para hacer nuestra presentación del proyecto final. 
