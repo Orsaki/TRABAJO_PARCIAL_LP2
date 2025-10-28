@@ -45,6 +45,7 @@ Este proyecto consiste en el desarrollo de una librería en Python orientada a o
 **Variable cuantitativa:**
 - En esta sección explicaremos lo que desarrollamos de forma colaborativa para hacer nuestra presentación del proyecto final. 
 
-- resumen(): imprimeun resumen estadístico completo y formateado 
-- graficar_histograma() : General un histograma 
-- graficar_boxplot() : Genera un diagrama de caja
+- detectar_atipicos() : identifica valores atípicos leves usando el método del IQR / Return: un diccionario con listas de valores atípicos inferiores y superiores.
+- resumen(): imprime un resumen estadístico completo y formateado.
+- graficar_histograma() : General un histograma.
+- graficar_boxplot() : Genera un diagrama de caja.
