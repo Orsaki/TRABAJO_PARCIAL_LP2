@@ -73,6 +73,10 @@ En esta sección explicaremos lo que desarrollamos de forma colaborativa para ha
 
 - asimetria() : Es una medida de forma que indica si una distribución de datos es simétrica o no con respecto a la media.
 
+- curtosis() : Es una medida que describe el grado de forma o aplanamiento de una distribución. 
+
+**Gráficos**
+
 - detectar_atipicos() : identifica valores atípicos leves usando el método del IQR / Return: un diccionario con listas de valores 
 atípicos inferiores y superiores.
 
