@@ -53,6 +53,10 @@ En esta sección explicaremos lo que desarrollamos de forma colaborativa para ha
 
 - mediana() : Es una medida que nos da información del valor central de un conjunto de datos **ordenados**.
  
+**Medida de posición**
+
+- percentil() : Es una medida estadística que indica el valor por debajo del cual se encuentra un determinado porcentaje de datos, una vez que estos han sido ordenados de menor a mayor. 
+  
 - rango_intercuartilico() : calcula el rango intercuartilico "IQR = Q3 - Q1
 
 - detectar_atipicos() : identifica valores atípicos leves usando el método del IQR / Return: un diccionario con listas de valores 
