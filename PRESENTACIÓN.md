@@ -69,6 +69,10 @@ En esta sección explicaremos lo que desarrollamos de forma colaborativa para ha
 
 - coeficiente_variacion() : Es una medida estadística de dispersión relativa que compara la desviación estándar con la media aritmética de un conjunto de datos.
 
+**Medida de forma**
+
+- asimetria() : Es una medida de forma que indica si una distribución de datos es simétrica o no con respecto a la media.
+
 - detectar_atipicos() : identifica valores atípicos leves usando el método del IQR / Return: un diccionario con listas de valores 
 atípicos inferiores y superiores.
 
