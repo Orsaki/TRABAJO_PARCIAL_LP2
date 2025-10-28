@@ -80,12 +80,6 @@ class VariableCualitativa(Variable):
         print(f"✅ Tabla de frecuencias guardada en {nombre_archivo}")
 
 
-    def tabla_frecuencia_ordenada(self):
-        """Devuelve la tabla de frecuencias ordenada de mayor a menor"""
-        tabla = self.calcular_frecuencia()
-        return tabla.sort_values(by="Frecuencia absoluta", ascending=False)
-
-
     def porcentaje_categoria(self, categoria):
         """Devuelve el porcentaje de una categoría específica"""
         if categoria in self.datos.values:
@@ -120,8 +114,6 @@ class VariableCualitativa(Variable):
                 print(f"Categoría menos frecuente: {menos} ({frec_menos} veces)")
                 print("\nTabla de frecuencias:")
                 print(self.calcular_frecuencia())
-                print("\n📊 Tabla ordenada por frecuencia:")
-                print(self.tabla_frecuencia_ordenada())
                 print("\n💾 Si deseas guardar los datos, usa:")
                 print("var_color.exportar_frecuencias('mi_tabla.csv')")
                 print("\n📈 Tabla con frecuencias acumuladas:")
@@ -143,13 +135,53 @@ class VariableCualitativa(Variable):
             f.write("📋 Tabla de frecuencias:\n")
             f.write(str(self.calcular_frecuencia()) + "\n\n")
     
-            f.write("📊 Tabla ordenada por frecuencia:\n")
-            f.write(str(self.tabla_frecuencia_ordenada()) + "\n\n")
-    
             f.write("🔠 Tabla de frecuencias ordenada alfabéticamente:\n")
             f.write(str(self.tabla_frecuencia_alfabetica()) + "\n\n")
     
         print(f"✅ Resumen exportado correctamente en '{nombre_archivo}'")
+
+
+#### Visualizador de Gráficos ### - CUALITATIVA
+
+class VisualizadorCualitativo:
+    """
+    Clase dedicada exclusivamente a generar visualizaciones para variables cualitativas.
+    """
+    def __init__(self, variable: VariableCualitativa):
+        """
+        Constructor que recibe el objeto cualitativo para graficar.
+        
+        Args:
+            variable (VariableCualitativa): El objeto de tipo VariableCualitativa que se va a visualizar.
+        """
+        if not isinstance(variable, VariableCualitativa):
+            raise TypeError("Se requiere un objeto de tipo VariableCualitativa.")
+        self.variable = variable
+
+    def graficar_pastel(self):
+        """Genera un gráfico de pastel para visualizar los porcentajes de cada categoría."""
+        tabla = self.variable.calcular_frecuencia()
+        plt.figure(figsize=(6, 6))
+        plt.pie(
+            tabla["Frecuencia absoluta"],
+            labels=tabla.index,
+            autopct='%1.1f%%',
+            startangle=90
+        )
+        plt.title(f"Distribución de {self.variable.nombre}")
+        plt.show()
+
+    def graficar_barras(self):
+        """Genera un gráfico de barras con las frecuencias absolutas."""
+        tabla = self.variable.calcular_frecuencia()
+        plt.figure(figsize=(7, 5))
+        plt.bar(tabla.index, tabla["Frecuencia absoluta"], color="skyblue", edgecolor="black")
+        plt.title(f"Frecuencia absoluta de {self.variable.nombre}")
+        plt.xlabel("Categorías")
+        plt.ylabel("Frecuencia absoluta")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plt.show()
 
 
 
