@@ -67,6 +67,8 @@ En esta sección explicaremos lo que desarrollamos de forma colaborativa para ha
 
 - rango_intercuartilico() : calcula el rango intercuartilico "IQR = Q3 - Q1
 
+- coeficiente_variacion() : Es una medida estadística de dispersión relativa que compara la desviación estándar con la media aritmética de un conjunto de datos.
+
 - detectar_atipicos() : identifica valores atípicos leves usando el método del IQR / Return: un diccionario con listas de valores 
 atípicos inferiores y superiores.
 
