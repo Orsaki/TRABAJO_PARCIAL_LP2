@@ -61,6 +61,7 @@ En esta sección explicaremos lo que desarrollamos de forma colaborativa para ha
 
 - rango() : Es una medida de dispersión en estadística que representa la diferencia entre el valor más alto y el más bajo de un conjunto de datos.
 
+- varianza() : Es una medida de dispersion que nos da informacion de la variabilidad de los datos respecto a la media. 
 - rango_intercuartilico() : calcula el rango intercuartilico "IQR = Q3 - Q1
 
 - detectar_atipicos() : identifica valores atípicos leves usando el método del IQR / Return: un diccionario con listas de valores 
