@@ -32,8 +32,6 @@ Este proyecto consiste en el desarrollo de una librería en Python orientada a o
 
 - grafico_frecuencia_relativa(): Devuelve grafico de frecuencia relativa de una variable
 
-- tabla_frecuencia_ordenada(): Devuelve la tabla de frecuencias ordenada de mayor a menor frecuencia.
-
 - tabla_frecuencia_acumulada(): Muestra las frecuencias absolutas y relativas acumuladas.
 
 - porcentaje_categoria(categoria): Indica el porcentaje que representa una categoría específica dentro de los datos.
